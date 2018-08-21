@@ -30,8 +30,8 @@ pub fn productowner_list(req: HttpRequest<AppState>) -> FutureResponse<HttpRespo
         .from_err()
         .and_then(|res| {
             match res {
-                Ok(products_list) => 
-                    Ok(HttpResponse::Ok().json(products_list)),
+                Ok(productowner_list) => 
+                    Ok(HttpResponse::Ok().json(productowner_list)),
                 Err(_) =>
                     Ok(HttpResponse::InternalServerError().into()),
             }
