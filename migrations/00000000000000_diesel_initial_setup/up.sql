@@ -104,3 +104,8 @@ CREATE TABLE usersenvs (
     env_type TEXT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
 );
+
+INSERT INTO usersenvs(id, user_id, env_id, po_id, start_date, 
+max_duration, lease_period, status, env_type, created_at) VALUES
+(1, 2, 2, 3, '2018-07-21 23:41:45.672805609', '12hrs', 'from 24th Aug to 25th Aug 2018', 1, 'EB', '2018-07-21 23:41:45.672805609');
+SELECT setval('products_id_seq', 1, true);
