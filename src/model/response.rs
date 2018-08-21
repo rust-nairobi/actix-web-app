@@ -1,5 +1,5 @@
 use model::cloudenv::CloudEnvironments;
-use model::products::Products;
+use model::products::{Products, ProductOwner};
 use model::usersenv::usersenv;
 
 pub enum MyError {
@@ -26,4 +26,11 @@ pub struct UsersenvListMsgs {
     pub status: i32,
     pub message : String,
     pub usersenv_list: Vec<usersenv>,
+}
+
+#[derive(Deserialize,Serialize, Debug)]
+pub struct ProductOwnerListMsgs {
+    pub status: i32,
+    pub message : String,
+    pub productowner_list: Vec<ProductOwner>,
 }

@@ -35,6 +35,7 @@ use model::db::ConnDsl;
 use api::index::{AppState, home, test};
 use api::cloudenv::{cloudenv_list};
 use api::usersenv::{usersenv_list};
+use api::products::{productowner_list, products_list};
 
 use env_logger::{Builder, Env};
 
@@ -78,6 +79,8 @@ fn main() {
         .max_age(3600)
         .resource("/api/env_list", |r| { r.method(Method::POST).with(cloudenv_list); })
         .resource("/api/usersenv_list", |r| { r.method(Method::POST).with(usersenv_list); })
+        .resource("/api/po_list", |r| { r.method(Method::POST).with(productowner_list); })
+        .resource("/api/product_list", |r| { r.method(Method::POST).with(products_list); })
         .register())
         })
         .bind("127.0.0.1:8083").unwrap()
