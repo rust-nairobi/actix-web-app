@@ -57,17 +57,40 @@ CREATE TABLE cloudenvironments (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO cloudenvironments(id, env_name, created_at) VALUES
+(1, 'Jumo-staging-1', '2018-07-21 23:41:45.672805609'),
+(2, 'Jumo-staging-2', '2018-07-21 23:41:45.672805609'),
+(3, 'Jumo-staging-3', '2018-07-21 23:41:45.672805609'),
+(4, 'Hermes-ussd-telenor', '2018-07-21 23:41:45.672805609');
+SELECT setval('cloudenvironments_id_seq', 4, true);
+
 CREATE TABLE products (
     id SERIAL NOT NULL PRIMARY KEY,
     prod_name TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO products(id, prod_name, created_at) VALUES
+(1, 'Jumo Portal', '2018-07-21 23:41:45.672805609'),
+(2, 'Hermes-pesa', '2018-07-21 23:41:45.672805609'),
+(3, 'Hermes-ussd', '2018-07-21 23:41:45.672805609'),
+(4, 'Hermes-sms', '2018-07-21 23:41:45.672805609');
+SELECT setval('products_id_seq', 4, true);
+
 CREATE TABLE productowner (
     id SERIAL NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO productowner(id, name, created_at) VALUES
+(1, 'Francois Retief', '2018-07-21 23:41:45.672805609'),
+(2, 'Tracy De Waal', '2018-07-21 23:41:45.672805609'),
+(3, 'Phil Moturi', '2018-07-21 23:41:45.672805609'),
+(4, 'Jason Murphy', '2018-07-21 23:41:45.672805609'),
+(5, 'Andrea Oxenham', '2018-07-21 23:41:45.672805609'),
+(6, 'Vanessa Fisher', '2018-07-21 23:41:45.672805609');
+SELECT setval('products_id_seq', 6, true);
 
 CREATE TABLE usersenvs ( 
     id SERIAL NOT NULL PRIMARY KEY,
