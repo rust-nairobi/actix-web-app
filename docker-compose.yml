@@ -1,0 +1,22 @@
+version: '3'
+services:
+    cloud_server:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - './:/usr/src/cloudenvapp'
+        links:
+            - db
+        environment:
+            - MY_LOG_LEVEL=info
+            - MY_LOG_STYLE=Always
+        command: 'bash -c "./wait-for-it.sh db:5432 -q -- diesel setup && cargo watch -x run"'
+    db:
+        image: 'postgres:9.6-alpine'
+        environment:
+            - POSTGRES_DB=cloudserver
+            - POSTGRES_USER=docker
+            - POSTGRES_PASSWORD=docker
+        ports:
+            - '5432:5432'
